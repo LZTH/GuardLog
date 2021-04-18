@@ -1,35 +1,26 @@
 
-#ifndef UTILS_H_
-#define UTILS_H_
-#include<map>
-#include<mutex>
+#ifndef SVR_UTILS_H_
+#define SVR_UTILS_H_
 
+#include <map>
+#include <mutex>
 
-namespace utils{
+namespace svr::utils {
 
-template<Key,Value>
-class ServerThreadSafeMap
-{
-    typedef map<Key,Value>::iterator iter;
-    public:
-        ServerThreadSafeMap();
-        ~ServerThreadSafeMap();
-        
+template <typename Key, typename Value>
 
+class ServerThreadSafeMap {
+  typedef map<Key, Value>::iterator iter;
 
-    private:
-        map<Key,Value> m_object_;   
-        std::mutex m_mutexMap;     
-}
+ public:
+  ServerThreadSafeMap();
+  ~ServerThreadSafeMap();
 
+ private:
+  map<Key, Value> m_object_;
+  std::mutex m_mutexMap;
+};
 
+}  // namespace svr::utils
 
-
-
-
-
-
-}
-
-
-#endif
+#endif  // SVR_UTILS_H_
