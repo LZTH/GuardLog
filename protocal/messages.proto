@@ -1,0 +1,26 @@
+syntax = "proto2";
+
+package tutorial;
+
+message LogData
+{
+  optional Uid id = 1;
+  optional Item item = 2 ;
+  optional bool flag = 3;
+}
+
+message ItemList
+{
+  repeated Item 
+}
+
+message Uid
+{
+  optional int64 timestamp = 1;
+  optional int64 id = 2;
+}
+
+message Item
+{
+  repeated bytes data_list = 1; 
+}
