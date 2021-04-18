@@ -11,13 +11,13 @@ message LogData
 
 message ItemList
 {
-  repeated Item 
+  repeated Item item_list = 1;
 }
 
 message Uid
 {
   optional int64 timestamp = 1;
-  optional int64 id = 2;
+  optional bytes id = 2;
 }
 
 message Item

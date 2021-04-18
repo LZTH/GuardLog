@@ -1,6 +1,6 @@
 #include "svr/include/controller.h"
 
-#include <google/protobug/message.h>
+#include <google/protobuf/message.h>
 
 namespace svr::controller {
 int32_t Controller::Run(const ::google::protobuf::Message& msg) {

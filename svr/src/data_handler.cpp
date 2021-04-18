@@ -1,18 +1,18 @@
-#include "svr/src/include/data_handler.h"
+#include "svr/include/data_handler.h"
 
 #include <cstdint>
 #include <mutex>
 #include <vector>
 
-#include "protocal/message.pb.h"
+#include "protocal/messages.pb.h"
 
 namespace svr::data_handler {
 
 std::mutex mtx;
 
-bool DataHandler::AddToMap(tutorial::Message& msg) {
+bool DataHandler::AddToMap(tutorial::LogData& msg) {
   int flag = msg.flag();
-  int64_t id = msg.id().id();
+  std::string id = msg.id().id();
 
   if (flag) {
     Complete(id);
@@ -28,14 +28,14 @@ bool DataHandler::AddToMap(tutorial::Message& msg) {
     std::vector<tutorial::Item> item_list;
     item_list.push_back(msg.item());
     m_data_.insert(
-        std::pair<int64_t, std::vector<tutorial::Item>>(id, item_list));
+        std::pair<std::string, std::vector<tutorial::Item>>(id, item_list));
     mtx.unlock();
   }
 
   return true;
 }
 
-bool DataHandler::Complete(int64_t id) {
+bool DataHandler::Complete(std::string& id) {
   auto iter = m_data_.find(id);
   if (iter != m_data_.end()) {
     mtx.lock();

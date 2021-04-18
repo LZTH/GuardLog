@@ -24,7 +24,7 @@ class Controller {
   int32_t Run(const ::google::protobuf::Message& msg);
 
  private:
-  DataHandler m_dataHandler;
+  svr::data_handler::DataHandler m_dataHandler;
 };
 }  // namespace svr::controller
 
