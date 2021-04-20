@@ -1,9 +1,10 @@
+// Copyright 2021 tianjunxiong
 #include "svr/include/controller.h"
 
 #include <google/protobuf/message.h>
 
 namespace svr::controller {
-int32_t Controller::Run(const ::google::protobuf::Message& msg) {
+int32_t Controller::Run(const ::google::protobuf::Message &msg) {
   // msg id 和 具体内容分开存储
   // 校验这条消息是否完结flag，若是，则进行持久化,
   // msg存储进map

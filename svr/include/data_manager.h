@@ -1,6 +1,6 @@
-// 主要负责存储：cache， 持久化
-#ifndef SVR_DATA_MANAGER_H_
-#define SVR_DATA_MANAGER_H_
+// copyright 主要负责存储：cache， 持久化
+#ifndef SVR_INCLUDE_DATA_MANAGER_H_
+#define SVR_INCLUDE_DATA_MANAGER_H_
 
 #include <string>
 
@@ -11,4 +11,4 @@ class DataManager {
 };
 }  // namespace svr::data_manager
 
-#endif  // SVR_DATA_MANAGER_H_
+#endif  // SVR_INCLUDE_DATA_MANAGER_H_
