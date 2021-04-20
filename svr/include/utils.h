@@ -1,6 +1,6 @@
-
-#ifndef SVR_UTILS_H_
-#define SVR_UTILS_H_
+// Copyright 2021 tianjunxiong
+#ifndef SVR_INCLUDE_UTILS_H_
+#define SVR_INCLUDE_UTILS_H_
 
 #include <map>
 #include <mutex>
@@ -23,4 +23,4 @@ class ServerThreadSafeMap {
 
 }  // namespace svr::utils
 
-#endif  // SVR_UTILS_H_
+#endif  // SVR_INCLUDE_UTILS_H_
