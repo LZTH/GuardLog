@@ -1,4 +1,5 @@
-// copyright 主要负责存储：cache， 持久化
+// copyright 2021 tianjunxiong
+// 主要负责存储：cache， 持久化
 #ifndef SVR_INCLUDE_DATA_MANAGER_H_
 #define SVR_INCLUDE_DATA_MANAGER_H_
 
