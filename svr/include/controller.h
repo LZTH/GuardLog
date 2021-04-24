@@ -21,7 +21,10 @@
 namespace svr::controller {
 class Controller {
  public:
-  int32_t Run(const ::google::protobuf::Message &msg);
+  Controller() = default;
+  virtual ~Controller() = default;
+
+  int32_t Run(const tutorial::LogData &msg);
 
  private:
   svr::data_handler::DataHandler m_data_handler_;

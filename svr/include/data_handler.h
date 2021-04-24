@@ -13,7 +13,7 @@
 namespace svr::data_handler {
 class DataHandler {
  public:
-  bool AddToMap(tutorial::LogData &);
+  bool AddToMap(const tutorial::LogData &);
   bool Complete(const std::string &id, const time_t timestamp);
   void SaveData(time_t timeStamp);
 

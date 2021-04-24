@@ -4,6 +4,7 @@
         "string": "cpp",
         "map": "cpp",
         "utility": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "*.tcc": "cpp"
     }
 }
