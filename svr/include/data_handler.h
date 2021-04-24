@@ -4,9 +4,10 @@
 
 #include <cstdint>
 #include <ctime>
-#include <map>
 #include <string>
 #include <vector>
+#include <unordered_map>
+
 #include "protocal/messages.pb.h"
 #include "svr/include/data_manager.h"
 
@@ -18,8 +19,8 @@ class DataHandler {
   void SaveData(time_t timeStamp);
 
  private:
-  std::map<std::string, tutorial::ItemList> m_data_;
-  std::map<time_t, std::vector<std::string>> timestamp_to_id_;
+  std::unordered_map<std::string, tutorial::ItemList> m_data_;
+  std::unordered_map<time_t, std::vector<std::string>> timestamp_to_id_;
   svr::data_manager::DataManager m_data_manager_;
 };
 }  // namespace svr::data_handler
