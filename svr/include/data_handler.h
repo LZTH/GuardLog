@@ -1,29 +1,26 @@
-// 数据处理，包括key timestamp提取，数据清洗，数据压缩
-#ifndef _DATA_HANDLER_H_
-#define _DATA_HANDLER_H_
+// Copyright 2021 tianjunxiong
+#ifndef SVR_INCLUDE_DATA_HANDLER_H_
+#define SVR_INCLUDE_DATA_HANDLER_H_
 
-#include<cstring>
-#include<map>
-#include<vector>
-#include "../include/data_manager.h"
+#include <cstdint>
+#include <ctime>
+#include <map>
+#include <string>
+#include <vector>
 #include "protocal/messages.pb.h"
+#include "svr/include/data_manager.h"
 
-class DataHandler 
-{
-    public:
-        bool AddToMap(tutorial::Message&);                  //add to mp
-        bool Complete(int64_t id);                               //check if it was complete,if so no to add to mp & clear from mp
-        void ClearData(int64_t timeStamp);                         //check if data in mp was time Err, if so clear
-        
-    private:
+namespace svr::data_handler {
+class DataHandler {
+ public:
+  bool AddToMap(const tutorial::LogData &);
+  bool Complete(const std::string &id, const time_t timestamp);
+  void SaveData(time_t timeStamp);
 
-    // lock
-
-        std::map<int64_t, std::vector<tutorial::Item>> m_data_;           //to save data
-        std::map<int64_t, std::vector<int64_t>> timestamp_to_id_;             //add to find the timeOut data id
-
-
-        // 
-        DataManager m_data_manager_;
+ private:
+  std::map<std::string, tutorial::ItemList> m_data_;
+  std::map<time_t, std::vector<std::string>> timestamp_to_id_;
+  svr::data_manager::DataManager m_data_manager_;
 };
-#endif
+}  // namespace svr::data_handler
+#endif  // SVR_INCLUDE_DATA_HANDLER_H_

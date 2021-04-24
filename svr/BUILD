@@ -14,4 +14,5 @@ cc_library(
         "include/data_manager.h",
     ],
     deps = ['//protocal:message_cc',],
+    visibility = ["//visibility:public"],
 )

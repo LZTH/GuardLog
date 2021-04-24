@@ -1,35 +1,26 @@
+// Copyright 2021 tianjunxiong
+#ifndef SVR_INCLUDE_UTILS_H_
+#define SVR_INCLUDE_UTILS_H_
 
-#ifndef UTILS_H_
-#define UTILS_H_
-#include<map>
-#include<mutex>
+#include <map>
+#include <mutex>
 
+namespace svr::utils {
 
-namespace utils{
+template <typename Key, typename Value>
 
-template<Key,Value>
-class ServerThreadSafeMap
-{
-    typedef map<Key,Value>::iterator iter;
-    public:
-        ServerThreadSafeMap();
-        ~ServerThreadSafeMap();
-        
+class ServerThreadSafeMap {
+  typedef map<Key, Value>::iterator iter;
 
+ public:
+  ServerThreadSafeMap();
+  ~ServerThreadSafeMap();
 
-    private:
-        map<Key,Value> m_object_;   
-        std::mutex m_mutexMap;     
-}
+ private:
+  map<Key, Value> m_object_;
+  std::mutex m_mutexMap;
+};
 
+}  // namespace svr::utils
 
-
-
-
-
-
-
-}
-
-
-#endif
+#endif  // SVR_INCLUDE_UTILS_H_
